@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
 const prompt = inquirer.createPromptModule();
 const axios = require("axios");
+const getAdminToken = require("../utility/getAdminToken");
+
 module.exports = function() {
     const ques1 = [
         {
@@ -46,10 +48,14 @@ module.exports = function() {
 
 
     async function findPatient(ans) {
+        const adminToken = getAdminToken();
         const config = {
             method: "post",
             url: "http://localhost:3000/api/findP",
             data: ans,
+            headers: {
+                Authorization: `Bearer ${adminToken}`
+            },
         };
         console.log("Sending request to find patient:", ans);
 
@@ -77,11 +83,15 @@ module.exports = function() {
     async function updatePatient(answers,id)
     {
         const patientMgmt = require("../controllers/patientMgmt");
-
+        const adminToken = getAdminToken();
+             
         const config = {
             method: "put",
             url: "http://localhost:3000/api/updateP",
-            data: {...answers, id: id}
+            data: {...answers, id: id},
+            headers: {
+                Authorization: `Bearer ${adminToken}`
+            },
         };
 
         console.log("sending request to update patient.");

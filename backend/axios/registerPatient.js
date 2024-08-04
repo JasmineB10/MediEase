@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const prompt = inquirer.createPromptModule();
 const axios = require("axios");
-
+const getAdminToken = require("../utility/getAdminToken");
 
 module.exports = function () {
     const patientQues = [
@@ -64,11 +64,14 @@ module.exports = function () {
 
     async function createPatient(answers) {
 
-
+        const adminToken = getAdminToken();
         const config = {
             method: "post",
             url: "http://localhost:3000/api/registerP",
             data: answers,
+            headers: {
+                Authorization: `Bearer ${adminToken}`
+            },
         };
         console.log("right before response");
         let res = await axios(config);
