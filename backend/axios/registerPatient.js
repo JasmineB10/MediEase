@@ -73,7 +73,7 @@ module.exports = function () {
                 Authorization: `Bearer ${adminToken}`
             },
         };
-        console.log("right before response");
+        //console.log("right before response");
         let res = await axios(config);
 
         

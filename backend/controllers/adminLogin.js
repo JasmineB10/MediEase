@@ -3,7 +3,7 @@ const Admin = require("../models/adminSchema");
 
 module.exports = async (req, res) => {
     try {
-        console.log("Request received in controllers");
+        //console.log("Request received in controllers");
 
         const { username, password } = req.body;
 

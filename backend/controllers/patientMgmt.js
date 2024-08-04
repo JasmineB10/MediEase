@@ -3,7 +3,7 @@ const prompt = inquirer.createPromptModule();
 
 
 
-//const viewPaxios = require("../axios/viewPatient");
+const viewPaxios = require("../axios/viewPatient");
 //const deletePaxios = require("../axios/deletePatient");
 
 module.exports = function() {

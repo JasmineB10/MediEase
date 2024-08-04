@@ -57,15 +57,15 @@ module.exports = function() {
                 Authorization: `Bearer ${adminToken}`
             },
         };
-        console.log("Sending request to find patient:", ans);
+        //console.log("Sending request to find patient:", ans);
 
         try{
 
             let res = await axios(config);
-            console.log("Response from findP:", res.data);
+            //console.log("Response from findP:", res.data);
 
             if (res.data.success === true) {
-             console.log(res.data.message, "\n");
+             //console.log(res.data.message, "\n");
              updateOption(res.data.id);
            }
            else
@@ -94,10 +94,10 @@ module.exports = function() {
             },
         };
 
-        console.log("sending request to update patient.");
+        //console.log("sending request to update patient.");
 
         let res = await axios(config);
-        console.log("response from updateP ", res.data);
+        //console.log("response from updateP ", res.data);
 
         if (res.data.success === true)
         {

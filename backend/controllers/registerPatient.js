@@ -13,7 +13,7 @@ module.exports = async function(req, res) {
             history,
             allergy,
             medication,
-            insurance = { provider: 'None', policyNumber: 'None' } // Default value if not provided
+            insurance = { provider: 'None', policyNumber: 'None' } 
         } = req.body;
 
         if (!firstname || !lastname || !dob || !gender || !phone || !email || !address) {
